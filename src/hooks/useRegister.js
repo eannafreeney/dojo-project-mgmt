@@ -33,7 +33,7 @@ export const useRegister = () => {
       const thumbnailImg = await projectStorage.ref(uploadPath).put(thumbnail);
       const thumbnailImgURL = await thumbnailImg.ref.getDownloadURL();
 
-      // add displayName to registered user
+      // add displayName + photoURL to registered user
       await res.user.updateProfile({
         displayName: displayName,
         photoURL: thumbnailImgURL,
@@ -56,7 +56,6 @@ export const useRegister = () => {
       }
     } catch (error) {
       if (!isCancelled) {
-        console.log(error.message);
         setError(error.message);
         setIsPending(false);
       }

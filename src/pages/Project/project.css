@@ -11,8 +11,9 @@
   padding: 30px;
   border-radius: 4px;
 }
-.project-summary .due-date {
-  margin: 10px 0;
+.project-summary .due-date,
+.display-name {
+  margin: 15px 0;
   font-size: 0.9em;
   color: var(--title-color);
 }
@@ -44,6 +45,7 @@
 .project-comments textarea {
   min-height: 40px;
   font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 /* comment list */

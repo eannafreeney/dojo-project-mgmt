@@ -4,7 +4,6 @@
   background: var(--primary-color);
   min-height: 100vh;
   box-sizing: border-box;
-  position: relative;
   color: #fff;
 }
 .sidebar-content {
@@ -44,4 +43,7 @@
 }
 .sidebar .links .active img {
   filter: invert(40%);
+}
+.user div {
+  margin-bottom: 0.5rem;
 }

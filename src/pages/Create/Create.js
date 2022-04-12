@@ -32,7 +32,9 @@ export default function Create() {
   const [dueDate, setDueDate] = useState("");
   const [category, setCategory] = useState("");
   const [assignedUsers, setAssignedUsers] = useState([]);
-  const [formError, setFormError] = useState(null);
+  // const [formError, setFormError] = useState(null);
+  const [categoryError, setCategoryError] = useState(null);
+  const [selectError, setSelectError] = useState(null);
 
   useEffect(() => {
     if (documents) {
@@ -43,16 +45,25 @@ export default function Create() {
     }
   }, [documents]);
 
+  const resetErrors = () => {
+    setCategoryError(null);
+    setSelectError(null);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormError(null);
+    resetErrors();
 
+    if (!category && !assignedUsers.length < 1) {
+      setCategoryError("Please select a category");
+      return;
+    }
     if (!category) {
-      setFormError("Please select a category");
+      setSelectError("Please assign to at least one user");
       return;
     }
     if (assignedUsers.length < 1) {
-      setFormError("Please assign to at least one user");
+      setSelectError("Please assign to at least one user");
       return;
     }
 
@@ -105,6 +116,7 @@ export default function Create() {
             required
             onChange={(e) => setDetails(e.target.value)}
             value={details}
+            rows="5"
           />
         </label>
         <label>
@@ -123,16 +135,19 @@ export default function Create() {
             onChange={(option) => setCategory(option)}
           />
         </label>
+        {categoryError && <div className="error">{categoryError}</div>}
         <label>
           <span>Assign To:</span>
           <Select
             onChange={(option) => setAssignedUsers(option)}
             options={users}
+            maxMenuHeight={120}
             isMulti
           />
         </label>
+        {selectError && <div className="error">{selectError}</div>}
+        {/* {formError && <div className="error">{formError}</div>} */}
         <button className="btn">add Project</button>
-        {formError && <div className="error">{formError}</div>}
       </form>
     </div>
   );

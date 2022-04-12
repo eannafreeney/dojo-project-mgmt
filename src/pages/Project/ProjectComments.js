@@ -64,6 +64,7 @@ export default function ProjectComments({ project }) {
             required
             onChange={(e) => setNewComment(e.target.value)}
             value={newComment}
+            rows="5"
           ></textarea>
         </label>
         <button className="btn">Add Comment</button>

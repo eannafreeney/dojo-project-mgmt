@@ -6,6 +6,10 @@
   background: #fbfbfb;
   color: var(--heading-color);
 }
+.user-list-content {
+  position: fixed;
+  padding-left: 60px;
+}
 .user-list h2 {
   text-align: right;
   margin-bottom: 40px;

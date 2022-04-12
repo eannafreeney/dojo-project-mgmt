@@ -2,15 +2,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 
 /* variables */
-/* :root {
+.light-theme {
   --heading-color: #444;
   --text-color: #999;
   --primary-color: #8d69f1;
   --highlight-color: #d13267;
   --bg-color: #f4f4f4;
-} */
+}
 
-/* variables */
 .dark-theme {
   --heading-color: #df744a;
   --text-color: #1a2930;
@@ -19,20 +18,13 @@
   --bg-color: #bfd8d2;
 }
 
-.light-theme {
-  --heading-color: #1a2930;
-  --text-color: #1a2930;
-  --primary-color: #6d7993;
-  --highlight-color: #9099a2;
-  --bg-color: #96858f;
-}
-
 /* base styles */
 body {
   font-family: Raleway, sans-serif;
   margin: 0;
   font-size: 1.1em;
   background: var(--bg-color);
+  text-transform: capitalize;
 }
 ul,
 li,
@@ -50,7 +42,7 @@ ul {
 
 /* layout */
 .page-title {
-  font-size: 1em;
+  font-size: 1.5em;
   color: var(--heading-color);
   display: inline-block;
 }
